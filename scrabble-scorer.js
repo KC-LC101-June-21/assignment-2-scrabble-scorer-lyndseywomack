@@ -151,9 +151,7 @@ function scorerPrompt(word) {
     console.log("Score for '" + word + "': " + scoringAlgorithms[1].scoringFunction(word));
   } else if (userNumber === "2"){
     console.log("Score for '" + word + "': " + scoringAlgorithms[2].scoringFunction(word));
-  } else {
-    console.log("Pick an option 0, 1 or 2.")
-  }
+    } 
   }
 };
 
