@@ -38,13 +38,13 @@ function initialPrompt() {
 };
 
 let simpleScore = function(word){
-  word = word.toLowerCase()
+  word = word.toUpperCase()
   score = word.length;
   return score;
 }
 
 let vowelBonusScore = function(word){
-  word = word.toLowerCase();
+  word = word.toUpperCase();
   let numberOfVowels = 0;
   let numberOfConst = 0;
   let vowelArray = ['A', 'E', 'I', 'O', 'U'];
@@ -112,7 +112,7 @@ const simpleScoreMethod = {
   name: "Simple Score",
   description: "Each letter is worth 1 point.",
   scoringFunction: function(word){
-  word = word.toLowerCase()
+  word = word.toUpperCase()
   score = word.length;
   return score;
 }
@@ -122,7 +122,7 @@ const vowelBonusMethod = {
   name: "Vowel Bonus Score",
   description: "Vowels are 3 pts, consonants are 1 pt.",
   scoringFunction: function(word){
-  word = word.toLowerCase();
+  word = word.toUpperCase();
   let numberOfVowels = 0;
   let numberOfConst = 0;
   let vowelArray = ['A', 'E', 'I', 'O', 'U'];
