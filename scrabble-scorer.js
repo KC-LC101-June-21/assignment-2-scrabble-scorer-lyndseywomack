@@ -38,7 +38,7 @@ function initialPrompt() {
 };
 
 let simpleScore = function(word){
-  word = word.toUpperCase()
+  word = word.toLowerCase()
   score = word.length;
   return score;
 }
