@@ -81,7 +81,7 @@ const oldScoreMethod = {
 const scrabbleScoreMethod = {
   name: "Scrabble",
   description : "Uses Scrabble point system",
-  scoringFunction: function scrabbleScore(word){
+  scoringFunction: function (word){
   word = word.toLowerCase();
   let wordScore = 0;
   for (let i=0; i<word.length; i++){
@@ -126,19 +126,8 @@ const vowelBonusMethod = {
 
 let newPointStructure = transform(oldPointStructure);
 
-// let scrabbleScore = function(word){
-//   word = word.toLowerCase();
-//   let wordScore = 0;
-//   for (let i=0; i<word.length; i++){
-//     for(letter in newPointStructure){
-//     if (letter === word[i]){
-//       wordScore = wordScore + newPointStructure[key]
-//       }
-//     }
-//   }
-//   return wordScore;
-// }
-function scrabbleScore(word){
+
+let scrabbleScore = function (word){
   word = word.toLowerCase();
   let wordScore = 0;
   for (let i=0; i<word.length; i++){
@@ -150,7 +139,6 @@ function scrabbleScore(word){
   }
   return wordScore;
 }
-// console.log(scrabbleScore(initialPrompt()))
 
 
 const scoringAlgorithms = [simpleScoreMethod, vowelBonusMethod, scrabbleScoreMethod];
@@ -180,23 +168,9 @@ function transform(object){
   return newObj;
 }
 
-// let newPointStructure = transform(oldPointStructure);
-
 function runProgram() {
    scorerPrompt(initialPrompt());
 }
-
-// Simple scoring
-// console.log("name: ", scoringAlgorithms[2].name);
-// console.log("scoringFunction result: ", scoringAlgorithms[2].scoringFunction("JavaScript"));
-
-// console.log(vowelBonusScore(initialPrompt()));
-
-// console.log(oldScrabbleScorer(initialPrompt()));
-
-// console.log(simpleScore(initialPrompt()));
-
-// console.log(simpleScore("test"));
 
 // Don't write any code below this line //
 // And don't change these or your program will not run as expected //
