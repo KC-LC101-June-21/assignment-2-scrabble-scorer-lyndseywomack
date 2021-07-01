@@ -160,7 +160,7 @@ function transform(object){
   for(key in object){
     for (let i=0;i<object[key].length; i++){
     let newVar = object[key][i]
-    newObj[newVar.toLowerCase()] = key;
+    newObj[newVar.toLowerCase()] = Number(key);
     }
   }
   return newObj;
