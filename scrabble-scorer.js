@@ -91,7 +91,7 @@ const scrabbleScoreMethod = {
       }
     }
   }
-  return wordScore;
+  return Number(wordScore);
 }
 };
 
@@ -133,7 +133,7 @@ let scrabbleScore = function (word){
   for (let i=0; i<word.length; i++){
     for(letter in newPointStructure){
     if (letter === word[i]){
-      wordScore += parseInt(newPointStructure[letter])
+      wordScore += Number(newPointStructure[letter])
       }
     }
   }
