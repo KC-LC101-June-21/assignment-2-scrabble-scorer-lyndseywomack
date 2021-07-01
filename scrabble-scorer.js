@@ -77,68 +77,36 @@ const oldScoreMethod = {
   scoringFunction: function oldScrabbleScorer(word) {
 	word = word.toUpperCase();
 	let letterPoints = "";
- 
 	for (let i = 0; i < word.length; i++) {
- 
 	  for (const pointValue in oldPointStructure) {
- 
 		 if (oldPointStructure[pointValue].includes(word[i])) {
 			letterPoints += `Points for '${word[i]}': ${pointValue}\n`
 		 }
- 
 	  }
 	}
 	return letterPoints;
  }
 };
+
 const scrabbleScoreMethod = {
   name: "Scrabble",
   description : "Uses Scrabble point system",
-  scoringFunction: function(word){
-  word = word.toLowerCase();
-  let wordScore = 0;
-  for (let i=0; i<word.length; i++){
-    for(letter in newPointStructure){
-    if (letter === word[i]){
-      wordScore += Number(newPointStructure[letter])
-      }
-    }
-  }
-  return (wordScore);
-}
+  scoringFunction: scrabbleScore
 };
 
 const simpleScoreMethod = {
   name: "Simple Score",
   description: "Each letter is worth 1 point.",
-  scoringFunction: function(word){
-  word = word.toUpperCase()
-  score = word.length;
-  return score;
-}
+  scoringFunction: simpleScore
 };
 
 const vowelBonusMethod = {
   name: "Vowel Bonus Score",
   description: "Vowels are 3 pts, consonants are 1 pt.",
-  scoringFunction: function(word){
-  word = word.toUpperCase();
-  let numberOfVowels = 0;
-  let numberOfConst = 0;
-  let vowelArray = ['A', 'E', 'I', 'O', 'U'];
-  for (let i=0; i<word.length; i++){
-    if (vowelArray.includes(word[i])){
-    numberOfVowels += 1
-    }
-  } 
-  numberOfConst = word.length - numberOfVowels;
-  let score = numberOfVowels*3+numberOfConst;
-  return score;
-}
+  scoringFunction: vowelBonusScore
 };
 
 let newPointStructure = transform(oldPointStructure);
-
 
 const scoringAlgorithms = [simpleScoreMethod, vowelBonusMethod, scrabbleScoreMethod];
 
