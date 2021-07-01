@@ -58,6 +58,19 @@ let vowelBonusScore = function(word){
   return score;
 };
 
+let scrabbleScore = function(word){
+  word = word.toLowerCase();
+  let wordScore = 0;
+  for (let i=0; i<word.length; i++){
+    for(letter in newPointStructure){
+    if (letter === word[i]){
+      wordScore += (newPointStructure[letter])
+      }
+    }
+  }
+  return wordScore;
+}
+
 const oldScoreMethod = {
   name: "Old Scrabble Score",
   description: "The traditional scoring algorithm.",
@@ -81,17 +94,17 @@ const oldScoreMethod = {
 const scrabbleScoreMethod = {
   name: "Scrabble",
   description : "Uses Scrabble point system",
-  scoringFunction: function (word){
+  scoringFunction: function(word){
   word = word.toLowerCase();
   let wordScore = 0;
   for (let i=0; i<word.length; i++){
     for(letter in newPointStructure){
     if (letter === word[i]){
-      wordScore += parseInt(newPointStructure[letter])
+      wordScore += Number(newPointStructure[letter])
       }
     }
   }
-  return Number(wordScore);
+  return (wordScore);
 }
 };
 
@@ -125,20 +138,6 @@ const vowelBonusMethod = {
 };
 
 let newPointStructure = transform(oldPointStructure);
-
-
-let scrabbleScore = function (word){
-  word = word.toLowerCase();
-  let wordScore = 0;
-  for (let i=0; i<word.length; i++){
-    for(letter in newPointStructure){
-    if (letter === word[i]){
-      wordScore += (newPointStructure[letter])
-      }
-    }
-  }
-  return wordScore;
-}
 
 
 const scoringAlgorithms = [simpleScoreMethod, vowelBonusMethod, scrabbleScoreMethod];
